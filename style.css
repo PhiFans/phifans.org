@@ -1,0 +1,72 @@
+:root {
+  --background-color: #FFFFFF;
+  --font-color: #000000;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  color: var(--font-color);
+  background-color: var(--background-color);
+  font-family: 'Noto Sans SC';
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+main h1 {
+  font-size: 3.6rem;
+}
+
+main h1 a {
+  position: relative;
+  color: unset;
+  text-decoration: none;
+}
+
+main h1 a::before,
+main h1 a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+  height: 0.4rem;
+  background-color: var(--font-color);
+  transition: width 0.25s cubic-bezier(0, 0, 0.25, 0.75);
+}
+
+main h1 a::before {
+  left: 0;
+}
+
+main h1 a::after {
+  right: 0;
+}
+
+/* Transitions & animations */
+main h1 a:hover::before,
+main h1 a:hover::after {
+  width: 50%;
+}
+
+/* For small screen devices */
+@media (max-width: 50em) {
+  main h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Custom dark theme font color */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --font-color: rgba(255, 255, 255, 0.75);
+  }
+}
